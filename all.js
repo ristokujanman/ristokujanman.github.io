@@ -65,46 +65,59 @@ $(".scrollsection").click(function( event ) {
 $("body").mousemove(function( event ) {
   	
   	// find out if the mouse is on the left or right side of the page
-  	if (event.pageX < leftLimit) {
+	if (event.pageY < $(document).height() - ($(document).height() / 7)) { 
+	
+		if (event.pageX < leftLimit) {
 
-		// left side		
-		// hide the cursor
-		$('body').css('cursor', 'none');
-  		// show the left arrow  	
-  	if (!isOverMenu) {
-  	     $('#arrow-left').show();
-      	}
-      	else   {
-        	 $('#arrow-left').hide();
-      	}
+			// left side		
+			// hide the cursor
+			$('body').css('cursor', 'none');
+			// show the left arrow  	
 
-		// make the left arrow follow the mouse position
-  		$('#arrow-left').css({
-            'top' :  (event.pageY - $(".arrow").height() / 2) + 'px',
-            'left' : (event.pageX + 5) + 'px'
-        });        
-  	}
-  	else if (event.pageX > rightLimit) {
-  		// right side
-  		// hide the cursor
-  		$('body').css('cursor', 'none');
-  		// show the right cursor
-  		$('#arrow-right').show();
+			if (!isOverMenu) {
+				$('#arrow-left').show();
+			}
+			else   {
+				 $('#arrow-left').hide();
+			}
 
-		// make the right cursor follow the mouse
-  		$('#arrow-right').css({
-            'top' :  (event.pageY - $(".arrow").height() / 2) + 'px',
-            'left' : (event.pageX - $(".arrow").width()) + 'px'
-        });
-  	}
-  	else {
-  		// hide the arrows
-  	  	$('#arrow-left').hide();
-  	  	$('#arrow-right').hide();
-  	  	
-  	  	// show the cursor
-  	  	$('body').css('cursor', 'default');
-  	}
+			// make the left arrow follow the mouse position
+			$('#arrow-left').css({
+			    'top' :  (event.pageY - $(".arrow").height() / 2) + 'px',
+			    'left' : (event.pageX + 5) + 'px'
+			});        
+		}
+		else if (event.pageX > rightLimit) {
+			// right side
+			// hide the cursor
+			$('body').css('cursor', 'none');
+			// show the right cursor
+			$('#arrow-right').show();
+
+			// make the right cursor follow the mouse
+			$('#arrow-right').css({
+				'top' :  (event.pageY - $(".arrow").height() / 2) + 'px',
+				'left' : (event.pageX - $(".arrow").width()) + 'px'
+			});
+		}
+		else {
+			// hide the arrows
+			$('#arrow-left').hide();
+			$('#arrow-right').hide();
+
+			// show the cursor
+			$('body').css('cursor', 'default');
+		}
+	}
+	else { 
+		// hide the arrows
+		$('#arrow-left').hide();
+		$('#arrow-right').hide();
+
+		// show the cursor
+		$('body').css('cursor', 'default');
+	}	
+		
 });
 
 
