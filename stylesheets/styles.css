@@ -1,21 +1,10 @@
 
-
-
+@font-face { font-family: 'agipo'; src: url('../agipo.otf'); } 
+@font-face { font-family: 'agipohover'; src: url('../agipo_light_italic.ttf'); format("truetype"); }
 
 body {
-
-@font-face { font-family: agipo; src: url('../agipo.otf'); } 
-@font-face { font-family: agipo; src: url('../agipo.otf'); }
 	
-font-family: agipo, sans-serif;
-
-
-}
-
-@font-face {
-  font-family: "agipohover";
-  src:url(../agipo_light_italic.ttf) format("truetype");
-
+	font-family: agipo, sans-serif;
 }
 
 section {
