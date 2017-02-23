@@ -11,6 +11,20 @@ $(".portfolio-item").mouseout(function(){
 
 });
 
+var isOverMenu = false;
+
+$("#menu").mouseover(function(){
+
+  isOverMenu = true;
+
+});
+
+$("#menu").mouseout(function(){
+
+  isOverMenu = false;
+
+});
+
 $("#menu li a").click(function() {
     console.log( $(this).attr("id") );
 
@@ -57,7 +71,12 @@ $("body").mousemove(function( event ) {
 		// hide the cursor
 		$('body').css('cursor', 'none');
   		// show the left arrow  	
-  		$('#arrow-left').show();
+  	if (!isOverMenu) {
+  	     $('#arrow-left').show();
+      	}
+      	else   {
+        	 $('#arrow-left').hide();
+      	}
 
 		// make the left arrow follow the mouse position
   		$('#arrow-left').css({
