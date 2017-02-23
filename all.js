@@ -11,6 +11,18 @@ $(".portfolio-item").mouseout(function(){
 
 });
 
+$(".hoverlink").mouseover(function(){
+
+	$('#arrow-left').hide();
+
+});
+
+$(".hoverlink").mouseout(function(){
+
+	$('#arrow-left').show();
+
+});
+
 
 $("#menu li a").click(function() {
     console.log( $(this).attr("id") );
