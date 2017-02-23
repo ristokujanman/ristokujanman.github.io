@@ -11,9 +11,6 @@ $(".portfolio-item").mouseout(function(){
 
 });
 
-
-
-
 $("#menu li a").click(function() {
     console.log( $(this).attr("id") );
 
