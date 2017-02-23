@@ -8,6 +8,8 @@ body {
   @font-face { font-family: agipo; src: url('agipo.otf'); }
 */
 	font-family: agipo, sans-serif;
+	  src:url(../agipo.otf) format("opentype");
+
 
 }
 
