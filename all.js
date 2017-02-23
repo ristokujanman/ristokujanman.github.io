@@ -14,6 +14,7 @@ $(".portfolio-item").mouseout(function(){
 $(".hoverlink").mouseover(function(){
 
 	$('#arrow-left').hide();
+	console.log("over");
 
 });
 
