@@ -8,7 +8,9 @@ h1 {
 }
 
 h2 {
-    font-size: 30px;
+    font-size: 1.6px;
+    font-family: 'agipohover'; src: url('../agipo_light_italic.ttf'); format("truetype"); }
+
 }
 
 p {
