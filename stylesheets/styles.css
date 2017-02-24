@@ -3,18 +3,18 @@
 @font-face { font-family: 'agipohover'; src: url('../agipo_light_italic.ttf'); format("truetype"); }
 
 h1 {
-    font-size: 2em;
+    font-size: 17px;
     font: aa_knif-mono-webfont, serif;
 }
 
 h2 {
-    font-size: 2px;
+    font-size: 17px;
     font-family: 'agipohover'; src: url('../agipo_light_italic.ttf'); format("truetype"); }
 
 }
 
 p {
-    font-size: 2em;
+    font-size: 17px;
 }
 
 body {
