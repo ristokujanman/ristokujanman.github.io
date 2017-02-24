@@ -2,6 +2,19 @@
 @font-face { font-family: 'aa_knif-mono-webfont'; src: url('../aa_knif-mono-webfont.ttf'); format("truetype"); } 
 @font-face { font-family: 'agipohover'; src: url('../agipo_light_italic.ttf'); format("truetype"); }
 
+h1 {
+    font-size: 1.4em;
+    font: garamondsmallcaps, serif;
+}
+
+h2 {
+    font-size: 30px;
+}
+
+p {
+    font-size: 1.4em;
+}
+
 body {
 	
 	font-family: aa_knif-mono-webfont, serif;
