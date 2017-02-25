@@ -26,12 +26,12 @@
 
 @font-face {
     font-family: 'knif_monoregular';
-    src: url('../aa_knif-mono-webfont.eot');
-    src: url('../aa_knif-mono-webfont.eot?#iefix') format('embedded-opentype'),
-         url('../aa_knif-mono-webfont.woff2') format('woff2'),
-         url('../aa_knif-mono-webfont.woff') format('woff'),
-         url('../aa_knif-mono-webfont.otf') format('opentype'),
-         url('../aa_knif-mono-webfont.svg#knif_monoregular') format('svg');
+    src: url('/aa_knif-mono-webfont.eot');
+    src: url('/aa_knif-mono-webfont.eot?#iefix') format('embedded-opentype'),
+         url('/aa_knif-mono-webfont.woff2') format('woff2'),
+         url('/aa_knif-mono-webfont.woff') format('woff'),
+         url('/aa_knif-mono-webfont.ttf') format('truetype'),
+         url('/aa_knif-mono-webfont.svg#knif_monoregular') format('svg');
     font-weight: normal;
     font-style: normal;
 
