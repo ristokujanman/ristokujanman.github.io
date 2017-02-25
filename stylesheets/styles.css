@@ -1,25 +1,80 @@
 
-@font-face { font-family: 'aa_knif-mono-webfont'; src: url('../aa_knif-mono-webfont.ttf'); format("truetype"); } 
-@font-face { font-family: 'agipohover'; src: url('../agipo_light_italic.ttf'); format("truetype"); }
+/*
+ * Web Fonts from fontspring.com
+ *
+ * All OpenType features and all extended glyphs have been removed.
+ * Fully installable fonts can be purchased at http://www.fontspring.com
+ *
+ * The fonts included in this stylesheet are subject to the End User License you purchased
+ * from Fontspring. The fonts are protected under domestic and international trademark and 
+ * copyright law. You are prohibited from modifying, reverse engineering, duplicating, or
+ * distributing this font software.
+ *
+ * (c) 2010-2017 Fontspring
+ *
+ *
+ *
+ *
+ * The fonts included are copyrighted by the vendor listed below.
+ *
+ * Vendor:      A is for...
+ * License URL: https://www.fontspring.com/licenses/a-is-for/webfont
+ *
+ *
+ */
 
-h1 {
-    font-size:large;
-    font: aa_knif-mono-webfont, serif;
+
+@font-face {
+    font-family: 'knif_monoregular';
+    src: url('../aa_knif-mono-webfont.eot');
+    src: url('../aa_knif-mono-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../aa_knif-mono-webfont.woff2') format('woff2'),
+         url('../aa_knif-mono-webfont.woff') format('woff'),
+         url('../aa_knif-mono-webfont.otf') format('opentype'),
+         url('../aa_knif-mono-webfont.svg#knif_monoregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
 }
 
-h2 {
-    font-size:large;
-    font-family: 'agipohover'; src: url('../agipo_light_italic.ttf'); format("truetype"); }
+
+
+@font-face {
+    font-family: 'agipohover';
+    src: url('../agipo_light_italic.ttf'); format("truetype"); 
+    font-weight: normal;
+    font-style: normal;
 
 }
 
-p {
-    font-size:large;
+
+p1 {
+    font-size:40px;
+    font: 'knif_monoregular', serif;
 }
+
+p2 {
+    font-size:17px;
+    font-family: 'agipohover', sans-serif;
+
+}
+
+p3 {
+    font-size:19px;
+    font-family: 'knif_monoregular', serif;
+}
+
+p4 {
+    font-size:19px;
+    font-family: 'knif_monoregular', serif;
+}
+
+
 
 body {
-	
-	font-family: aa_knif-mono-webfont, serif;
+	font-size:19px;
+	font-family: knif_monoregular, serif;
+  
 }
 
 section {
@@ -41,7 +96,7 @@ section {
 }
 
 .portfolio-item {
-	width:75%;
+  width:75%;
   display: inline-block;
   overflow:hidden;
 	margin: 5% 0 5% 12.5%; 
@@ -104,6 +159,7 @@ font-family: "agipohover";
 .portfolio-item img {
 	max-width: 100%;
 	max-height: 100%;
+  
 }
 
 .arrow {
@@ -124,15 +180,18 @@ font-family: "agipohover";
 position: center;
 }
 
+
+
 header {
 
   margin: 0 1.5% 24px 1.5%;
   position: fixed;
   display: inline-block;
-  background: white;
+  background: none;
 }
 
 header #menu {
+
   position: absolute;
   top: calc(100% - 4px); left: 0;
   height: auto;
@@ -142,10 +201,15 @@ header #menu {
   white-space: nowrap;
   display: none;
 }
+
 header:hover #menu {
+
   display: block;
 }
+
 header #menu li {
+
+  position: relative;
   padding-bottom: 4px;
 }
 
@@ -168,13 +232,17 @@ code {
 
 
 li {
+position: absolute;
 list-style-type: none;
 color: black;
   
 }
+
 a{
 list-style-type: none;
 color: black;
 text-decoration: none;
 }
+
+
 
