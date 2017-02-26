@@ -26,12 +26,12 @@
 
 @font-face {
     font-family: 'knif_monoregular';
-    src: url('/aa_knif-mono-webfont.eot');
-    src: url('/aa_knif-mono-webfont.eot?#iefix') format('embedded-opentype'),
-         url('/aa_knif-mono-webfont.woff2') format('woff2'),
-         url('/aa_knif-mono-webfont.woff') format('woff'),
-         url('/aa_knif-mono-webfont.ttf') format('truetype'),
-         url('/aa_knif-mono-webfont.svg#knif_monoregular') format('svg');
+    src: url('../aa_knif-mono-webfont.eot');
+    src: url('../aa_knif-mono-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../aa_knif-mono-webfont.woff2') format('woff2'),
+         url('../aa_knif-mono-webfont.woff') format('woff'),
+         url('../aa_knif-mono-webfont.otf') format('opentype'),
+         url('../aa_knif-mono-webfont.svg#knif_monoregular') format('svg');
     font-weight: normal;
     font-style: normal;
 
@@ -49,7 +49,7 @@
 
 
 p1 {
-    font-size:40px;
+    font-size:45px;
     font: 'knif_monoregular', serif;
 }
 
@@ -65,8 +65,9 @@ p3 {
 }
 
 p4 {
-    font-size:19px;
+    font-size:27px;
     font-family: 'knif_monoregular', serif;
+    z-index=100;
 }
 
 
@@ -74,7 +75,7 @@ p4 {
 body {
 	font-size:19px;
 	font-family: knif_monoregular, serif;
-  
+  z-index=100;
 }
 
 section {
@@ -101,7 +102,7 @@ section {
   overflow:hidden;
 	margin: 5% 0 5% 12.5%; 
 	position: relative;
-
+  
 }
 
 .portfolio-item-text {
@@ -154,6 +155,7 @@ font-family: "agipohover";
 	right: 15px;
 	color:white;
 	display: none;
+
 }
 
 .portfolio-item img {
@@ -163,7 +165,7 @@ font-family: "agipohover";
 }
 
 .arrow {
-    width: 20px;
+    width: 30px;
     position: absolute;
     background-size: contain;
     margin: 0;
@@ -188,6 +190,7 @@ header {
   position: fixed;
   display: inline-block;
   background: none;
+  z-index: 100;
 }
 
 header #menu {
@@ -200,17 +203,22 @@ header #menu {
   list-style-type: none;
   white-space: nowrap;
   display: none;
+  z-index: 100;
 }
 
 header:hover #menu {
 
   display: block;
+  z-index: 100;
+
 }
 
 header #menu li {
 
   position: relative;
   padding-bottom: 4px;
+  z-index: 100;
+
 }
 
 
@@ -242,6 +250,7 @@ a{
 list-style-type: none;
 color: black;
 text-decoration: none;
+
 }
 
 
