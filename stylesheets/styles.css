@@ -94,7 +94,7 @@ section {
 }
 
 .portfolio-item {
- 	 width: 75%;
+ 	width: 75%;
   	display: inline-block;
   	overflow-y: hidden;
 	margin: 5% 0 5% 12.5%; 
@@ -106,9 +106,9 @@ section {
   	width:75%;
 /*  height: 700px;
 */  	display: inline-block;
- 	 vertical-align: top;
+ 	vertical-align: top;
 	overflow-x: hidden;
-	  margin: 5% 12.5% 5% 12.5%; 
+	margin: 5% 12.5% 5% 12.5%; 
 
 /*  margin-left: 12.4%;
   margin-right: 12.4%;
