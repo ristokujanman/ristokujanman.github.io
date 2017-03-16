@@ -106,7 +106,7 @@ section {
   width:75%;
 /*  height: 700px;
 */  display: inline-block;
-  overflow:hidden;
+  vertical-align: top;
   margin: 5% 12.5% 5% 12.5%; 
 
 /*  margin-left: 12.4%;
