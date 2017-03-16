@@ -88,7 +88,7 @@ section {
   	width: 97%;
 	height:100%;
     white-space: nowrap;
-    overflow-y:hidden;
+    overflow:hidden;
     
 /*     border: 1px solid  */
 }
@@ -107,6 +107,7 @@ section {
 /*  height: 700px;
 */  display: inline-block;
   vertical-align: top;
+overflow-x: hidden;
   margin: 5% 12.5% 5% 12.5%; 
 
 /*  margin-left: 12.4%;
