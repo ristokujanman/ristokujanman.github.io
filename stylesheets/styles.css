@@ -96,7 +96,7 @@ section {
 .portfolio-item {
   width:75%;
   display: inline-block;
-  overflow-x:hidden;
+  overflow-y:hidden;
 	margin: 5% 0 5% 12.5%; 
 	position: relative;
   
