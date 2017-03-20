@@ -38,8 +38,8 @@ $("#menu li a").click(function() {
 var screenw = $( window ).width();
 
 // calculate left and right area's where the mouse will change
-var leftLimit = screenw * .4;				 	// 30 percent of the left side of the screen
-var rightLimit = screenw - (screenw * .4); 		// 30 percent of the right part of the screen
+var leftLimit = screenw * .35;				 	// 30 percent of the left side of the screen
+var rightLimit = screenw - (screenw * .35); 		// 30 percent of the right part of the screen
 
 // scroll the amount of a portfolio-item (image) including the margins
 var scrollAmount = $('.portfolio-item').outerWidth(true) + 12;
