@@ -116,10 +116,10 @@ section {
  
 .portfolio-item-text center {
   position: absolute;
-  top: 50%;
+  top: 50%; left: 50%;
   max-width: 800px;
   margin: 0 auto;
-  transform: translate(0,-50%);
+  transform: translate(-50%,-50%);
 }
 .portfolio-item-text center br {
   display: none;
