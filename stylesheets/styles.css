@@ -113,7 +113,10 @@ section {
     overflow-x: hidden;
     display: inline-block;
 }
- 
+
+.portfolio-item-text.ratio-16x9 {
+    padding-bottom: 42.1875%;
+}
 .portfolio-item-text center {
   position: absolute;
   top: 50%; left: 50%;
