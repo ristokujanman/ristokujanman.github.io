@@ -21,16 +21,12 @@
  * License URL: https://www.fontspring.com/licenses/a-is-for/webfont
  *
  *
- */
-@media screen and (max-width: 600px) {
-  .scroller {
+ */  
+
+@media only screen and (max-width: 600px) {
+    .scroller {
    	overflow: visible;
-
-  }
-	p {
-   	color: red;
-
-  }
+	}	  
 }
 
 @font-face {
