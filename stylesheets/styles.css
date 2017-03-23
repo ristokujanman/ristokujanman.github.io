@@ -26,11 +26,7 @@
 
 
 
-@media (max-width: 600px) {
-  .scroller {
-   	overflow-y: visible;
-  }
-}
+
 
 @font-face {
     font-family: 'knif_monoregular';
