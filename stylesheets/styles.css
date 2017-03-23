@@ -26,6 +26,11 @@
 @media (max-width: 600px) {
   .scroller {
    	overflow: visible;
+
+  }
+	p {
+   	color: red;
+
   }
 }
 
@@ -95,7 +100,6 @@ section {
     	white-space: nowrap;
    	overflow: hidden;
     
-/*     border: 1px solid  */
 }
 
 .portfolio-item {
