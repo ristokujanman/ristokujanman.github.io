@@ -24,6 +24,14 @@
  */
 
 
+
+
+@media (max-width: 600px) {
+  .scroller {
+   	overflow-y: visible;
+  }
+}
+
 @font-face {
     font-family: 'knif_monoregular';
     src: url('../aa_knif-mono-webfont.eot');
