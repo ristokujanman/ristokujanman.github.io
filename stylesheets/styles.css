@@ -23,10 +23,11 @@
  *
  */
 
-
-
-
-
+@media (max-width: 600px) {
+  .scroller {
+   	overflow: visible;
+  }
+}
 
 @font-face {
     font-family: 'knif_monoregular';
@@ -92,7 +93,7 @@ section {
   	width: 97%;
 	height: 100%;
     	white-space: nowrap;
-   	overflow-y: hidden;
+   	overflow: hidden;
     
 /*     border: 1px solid  */
 }
