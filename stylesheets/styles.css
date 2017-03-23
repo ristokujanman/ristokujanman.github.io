@@ -23,12 +23,6 @@
  *
  */  
 
-@media only screen and (max-width: 600px) {
-    scroller {
-   	overflow: visible;
-	}	  
-}
-
 @font-face {
     font-family: 'knif_monoregular';
     src: url('../aa_knif-mono-webfont.eot');
