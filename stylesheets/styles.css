@@ -23,19 +23,15 @@
  *
  */  
 
-@media only screen and (max-device-width: 480px) {
-
-    .scroller {
-   	overflow: scroll;
-    }	  
-
 	
-}	
 @media only screen and (max-device-width: 600px) {
     .scroller {
-   		overflow: scroll;
-	    background-color:#ff0000;
-	}	  
+	margin: 24px 1.5% 24px 1.5%;
+  	width: 97%;
+	height: 100%;
+    	white-space: nowrap;
+   	overflow: scroll;
+    }	  
 }
 
 @font-face {
