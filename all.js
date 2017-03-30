@@ -44,7 +44,7 @@ var rightLimit = screenw - (screenw * .35); 		// 30 percent of the right part of
 // scroll the amount of a portfolio-item (image) including the margins
 var scrollAmount = $('.portfolio-item').outerWidth(true) + 12;
 
-/*
+
 $(".scrollsection").click(function( event ) {
 
 
@@ -60,7 +60,7 @@ $(".scrollsection").click(function( event ) {
 		  $(this).find('.scroller').animate({scrollLeft:'+=' + scrollAmount},300);
   	}
 });
-*/
+
 
 $("body").mousemove(function( event ) {
   	
