@@ -88,6 +88,10 @@ body {
 section {
 }
 
+.scrollsection {
+     border-bottom: 0px solid;
+	
+}
 
 .scroller {
 	margin: 24px 1.5% 24px 1.5%;
