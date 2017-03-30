@@ -31,7 +31,10 @@
 	height: 100%;
     	white-space: nowrap;
    	overflow: scroll;
-    }	  
+	}	  
+     .scrollsection {
+     	overflow: scroll;
+	}
 }
 
 @font-face {
