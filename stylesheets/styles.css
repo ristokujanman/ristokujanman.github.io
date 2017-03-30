@@ -30,7 +30,7 @@
   	width: 97%;
 	height: 100%;
     	white-space: nowrap;
-   	overflow: initial;
+   	overflow: scroll;
 	}	  
      .scrollsection {
      	overflow: initial;
