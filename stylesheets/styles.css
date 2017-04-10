@@ -89,7 +89,7 @@ section {
   	width: 97%;
 	height: 100%;
     	white-space: nowrap;
-   	overflow-y: hidden;
+   	overflow: hidden;
     
 }
 
@@ -253,4 +253,12 @@ text-decoration: none;
 }
 
 
-
+@media only screen and (max-device-width: 600px) {
+    .scroller {
+	margin: 24px 1.5% 24px 1.5%;
+  	width: 97%;
+	height: 100%;
+    	white-space: nowrap;
+   	overflow-x: auto;
+    }	  
+}
