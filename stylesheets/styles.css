@@ -253,7 +253,7 @@ text-decoration: none;
 }
 
 
-@media only screen and (max-device-width: 600px) {
+@media only screen and (max-device-width: 1024px) {
     .scroller {
 	margin: 24px 1.5% 24px 1.5%;
   	width: 97%;
