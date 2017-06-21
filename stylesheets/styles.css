@@ -52,12 +52,14 @@ p1 {
 }
 
 p2 {
-    font-size:17px;
-	font-family: 'agipohover'; sans serif}
-
-p3 {
     font-size:19px;
     font-family: 'knif_monoregular', serif;
+}
+
+p3 {
+
+    font-size:17px;
+    font-family: 'agipohover'; sans serif}
 }
 
 p4 {
