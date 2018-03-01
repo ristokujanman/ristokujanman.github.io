@@ -117,6 +117,8 @@ section {
 
 .portfolio-item-text.ratio-16x9 {
     /* 75% of 100 x 9 / 16 */
+    padding-bottom: 42.1875%;
+
 }
 .portfolio-item-text center {
   position: absolute;
