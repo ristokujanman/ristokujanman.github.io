@@ -54,12 +54,12 @@ p2 {
 
 p3 {
     font-size:19px;
-    font-family: 'knif_monoregular', serif;
+    font-family: 'orb15forwebsite-Regular', serif;
 }
 
 p4 {
     font-size:27px;
-    font-family: 'knif_monoregular', serif;
+    font-family: 'orb15forwebsite-Regular', serif;
     z-index=100;
 }
 
@@ -67,7 +67,7 @@ p4 {
 
 body {
 	font-size:19px;
-	font-family: knif_monoregular, serif;
+	font-family: orb15forwebsite-Regular, serif;
   z-index=100;
 }
 
