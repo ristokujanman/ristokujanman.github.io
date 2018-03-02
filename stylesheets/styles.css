@@ -41,7 +41,7 @@
 
 
 p1 {
-    font-size:60px;
+    font-size:90px;
     font: 'orb15web', serif;
 }
 
@@ -52,12 +52,12 @@ p2 {
 }
 
 p3 {
-    font-size:60px;
+    font-size:90px;
     font-family: 'orb15web', serif;
 }
 
 p4 {
-    font-size:60px;
+    font-size:90px;
     font-family: 'orb15web', serif;
     z-index=100;
 }
@@ -65,7 +65,7 @@ p4 {
 
 
 body {
-	font-size:60px;
+	font-size:90px;
 	font-family: orb15web, serif;
   z-index=100;
 }
