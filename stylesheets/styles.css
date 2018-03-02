@@ -26,8 +26,8 @@
 
 
 @font-face {
-    font-family: 'orb15forwebsite-Regular';
-    src: url('../orb15forwebsite-Regular.otf') format('opentype'),
+    font-family: 'orb15web';
+    src: url('../orb15web.otf') format('opentype'),
     font-weight: normal;
     font-style: normal;
 
@@ -43,7 +43,7 @@
 
 p1 {
     font-size:60px;
-    font: 'orb15forwebsite-Regular', serif;
+    font: 'orb15web', serif;
 }
 
 p2 {
@@ -54,12 +54,12 @@ p2 {
 
 p3 {
     font-size:19px;
-    font-family: 'orb15forwebsite-Regular', serif;
+    font-family: 'orb15web', serif;
 }
 
 p4 {
     font-size:27px;
-    font-family: 'orb15forwebsite-Regular', serif;
+    font-family: 'orb15web', serif;
     z-index=100;
 }
 
@@ -67,7 +67,7 @@ p4 {
 
 body {
 	font-size:19px;
-	font-family: orb15forwebsite-Regular, serif;
+	font-family: orb15web, serif;
   z-index=100;
 }
 
