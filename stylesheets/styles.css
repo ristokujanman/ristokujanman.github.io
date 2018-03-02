@@ -27,8 +27,9 @@
 
 @font-face {
     font-family: 'orb15web';
-    src: url('../orb15web.otf') format('opentype'),
-
+    src: url('../orb15web.otf') format('opentype');
+f	ont-weight: normal;
+    	font-style: normal;
 }
 
 @font-face {
