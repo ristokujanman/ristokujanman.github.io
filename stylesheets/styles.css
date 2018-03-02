@@ -52,12 +52,12 @@ p2 {
 }
 
 p3 {
-    font-size:19px;
+    font-size:49px;
     font-family: 'orb15web', serif;
 }
 
 p4 {
-    font-size:27px;
+    font-size:47px;
     font-family: 'orb15web', serif;
     z-index=100;
 }
@@ -65,7 +65,7 @@ p4 {
 
 
 body {
-	font-size:19px;
+	font-size:39px;
 	font-family: orb15web, serif;
   z-index=100;
 }
