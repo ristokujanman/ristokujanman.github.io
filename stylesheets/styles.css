@@ -57,9 +57,9 @@ p3 {
 }
 
 p4 {
-    font-size:70px;
+    font-size:65px;
     font-family: 'orb15web', serif;
-    z-index=80;
+    z-index=100;
 }
 
 
