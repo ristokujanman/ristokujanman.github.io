@@ -26,13 +26,8 @@
 
 
 @font-face {
-    font-family: 'knif_monoregular';
-    src: url('../aa_knif-mono-webfont.eot');
-    src: url('../aa_knif-mono-webfont.eot?#iefix') format('embedded-opentype'),
-         url('../aa_knif-mono-webfont.woff2') format('woff2'),
-         url('../aa_knif-mono-webfont.woff') format('woff'),
-         url('../aa_knif-mono-webfont.otf') format('opentype'),
-         url('../aa_knif-mono-webfont.svg#knif_monoregular') format('svg');
+    font-family: 'orb15forwebsite-Regular';
+    src: url('../orb15forwebsite-Regular.otf') format('opentype'),
     font-weight: normal;
     font-style: normal;
 
@@ -48,7 +43,7 @@
 
 p1 {
     font-size:60px;
-    font: 'knif_monoregular', serif;
+    font: 'orb15forwebsite-Regular', serif;
 }
 
 p2 {
