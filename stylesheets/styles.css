@@ -46,13 +46,13 @@ p1 {
 }
 
 p2 {
-    font-size:17px;
+    font-size:19px;
     font-family: 'dualistweb-1', sans-serif;
 
 }
 
 p3 {
-    font-size:17px;
+    font-size:19px;
     font-family: 'dualistweb-1', sans-serif;
 }
 
@@ -101,7 +101,7 @@ section {
     width: 75%;
     height: 0;
     /* 75% of 100 x 3 / 4 */
-    padding-bottom: 56.25%;
+    padding-bottom: 10%;
     margin: 5% 12.5% 5% 12.5%;
     white-space: normal;
     vertical-align: top;
@@ -192,7 +192,7 @@ header #menu {
   position: absolute;
   top: calc(100% - 4px); left: 0;
   height: auto;
-  padding: 4px 4px 0;
+  padding: 4px 15px 0;
   margin: 0;
   list-style-type: none;
   white-space: nowrap;
