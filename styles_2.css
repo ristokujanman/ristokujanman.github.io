@@ -1,0 +1,57 @@
+body {
+  -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome and Opera */
+}
+
+@font-face {
+    font-family: 'orb15web';
+    src: url('./orb15web.otf') format('opentype');
+	  font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'dualistweb-1';
+    src: url('./dualistweb-1.otf') format('opentype');
+    	font-weight: normal;
+    	font-style: normal;
+}
+
+
+h1 {
+    margin: 0;
+    font-size: 90px;
+    line-height: 100px;
+    font: 'orb15web', serif;
+    font-weight: normal;
+}
+
+p {
+    font-size:19px;
+    font-family: 'dualistweb-1', sans-serif;
+}
+
+h2 {
+  margin: 0;
+  font-size:65px;
+  line-height: 40px;
+  font-weight: normal;
+  font-family: 'orb15web', serif;
+  z-index:100;
+}
+
+ul > li {
+  height: 90px;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+	font-size:90px;
+	font-family: orb15web, serif;
+}

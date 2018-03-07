@@ -1,258 +1,196 @@
-
-/*
- * Web Fonts from fontspring.com
- *
- * All OpenType features and all extended glyphs have been removed.
- * Fully installable fonts can be purchased at http://www.fontspring.com
- *
- * The fonts included in this stylesheet are subject to the End User License you purchased
- * from Fontspring. The fonts are protected under domestic and international trademark and 
- * copyright law. You are prohibited from modifying, reverse engineering, duplicating, or
- * distributing this font software.
- *
- * (c) 2010-2017 Fontspring
- *
- *
- *
- *
- * The fonts included are copyrighted by the vendor listed below.
- *
- * Vendor:      A is for...
- * License URL: https://www.fontspring.com/licenses/a-is-for/webfont
- *
- *
- */  
-
-
-
-@font-face {
-    font-family: 'orb15web';
-    src: url('../orb15web.otf') format('opentype');
-	font-weight: normal;
-    	font-style: normal;
-}
-
-@font-face {
-    font-family: 'dualistweb-1';
-    src: url('../dualistweb-1.otf') format('opentype');
-    	font-weight: normal;
-    	font-style: normal;
-}
-
-
-p1 {
-    font-size:90px;
-    font: 'orb15web', serif;
-}
-
-p2 {
-    font-size:19px;
-    font-family: 'dualistweb-1', sans-serif;
-
-}
-
-p3 {
-    font-size:19px;
-    font-family: 'dualistweb-1', sans-serif;
-}
-
-p4 {
-    font-size:65px;
-    font-family: 'orb15web', serif;
-    z-index=100;
-}
-
-
-
-body {
-	font-size:90px;
-	font-family: orb15web, serif;
-  z-index=100;
-}
-
-section {
-}
-
-.scrollsection {
-     border-bottom: 0px solid;
-	
-}
-
-.scroller {
-	margin: 24px 1.5% 24px 1.5%;
-  	width: 97%;
-	height: 100%;
-    	white-space: nowrap;
-   	overflow: hidden;
-    
-}
-
-.portfolio-item {
- 	width: 75%;
-  	display: inline-block;
-  	overflow: hidden;
-	margin: 5% 0 5% 12.5%; 
-	position: relative;
-  
-}
-
-.portfolio-item-text {
-    position: relative;
-    width: 75%;
-    height: 0;
-    /* 75% of 100 x 3 / 4 */
-    padding-bottom: 56.25%;
-    margin: 5% 12.5% 5% 12.5%;
-    white-space: normal;
-    vertical-align: middle;
-    overflow-x: hidden;
-    display: inline-block;
-}
-
-.portfolio-item-text.ratio-16x9 {
-    /* 75% of 100 x 9 / 16 */
-    padding-bottom: 42.1875%;
-
-}
-.portfolio-item-text center {
-  position: absolute;
-  top: 50%; left: 50%;
-  max-width: 800px;
-  margin: 0 auto;
-  transform: translate(-50%,-50%);
-}
-.portfolio-item-text center br {
-  display: none;
-}
-.portfolio-item-text p {
-  color:black;
-}
-
-.portfolio-item-text h1 {
-  color:black;
-}
-
-.portfolio-item-text a:hover {
-font-family: "dualistweb-1";
-
-}
-
-/*
-.portfolio-item:last-child {
-    margin-right: 12.5%;
-}
-*/
-
-.portfolio-item p {
-	position: absolute;
-	bottom: 0;
-	right: 15px;
-	color:white;
-	display: none;
-
-}
-
-.portfolio-item img {
-	max-width: 100%;
-	max-height: 100%;
-  
-}
-
-.arrow {
-    width: 30px;
-    position: absolute;
-    background-size: contain;
-    margin: 0;
+@media only screen and (max-width: 768px) {
+  br {
     display: none;
+  }
+
+  h1 {
+      margin: 0;
+      font-size: 120px !important;
+      line-height: 140px !important;
+      font: 'orb15web', serif;
+      font-weight: normal;
+  }
+
+  body {
+    font-family: orb15web, serif;
+  }
+
+  p {
+      font-size: 24px !important;
+      font-family: 'dualistweb-1', sans-serif;
+  }
+
+  #header {
+    /* width: 100vw !important;
+    height: 100vh !important;
+    background: white; */
+  }
+
+  #menu {
+    width: 100%;
+    height: 100%;
+    line-height: 100px !important;
+    font-size: 80px !important;
+  }
 }
 
-.arrow img {
-	max-height: 100%;
-	max-width: 100%;
-
+.embed {
+  width: 60vw;
+  margin-left: calc((100vw - 60vw) / 2);
+  height: calc(60vw * (9 / 16));
 }
 
-.text {
-position: center;
-}
-
-
-
-header {
-
-  position: fixed;
-  display: inline-block;
-  background: none;
-  z-index: 100;
-}
-
-header #menu {
-
-  position: absolute;
-  top: calc(100% - 4px); left: 0;
-  height: auto;
-  padding: 4px 10px 0;
-  margin: 0;
-  list-style-type: none;
-  white-space: nowrap;
-  display: none;
-  z-index: 100;
-}
-
-header:hover #menu {
-
-  display: block;
-  z-index: 100;
-
-}
-
-header #menu li {
-
+.embed-container {
   position: relative;
-  padding-bottom: 4px;
-  z-index: 100;
-
+  padding-bottom: 56.25%;
+  height: 0;
+  overflow: hidden;
+  max-width: 100%;
 }
 
-
-footer {
-  clear: both;
-  margin-bottom: 0;  
-  margin: 0 1.5% 12px 1.5%;
-  float: left;
+.embed-container iframe,
+.embed-container object,
+.embed-container embed {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
 }
 
+  /* FULLPAGE STYLES    */
 
-code {
-  background: white;
-  border-radius: 6px;
-  color: black;
-  display: block;
-  padding: 24px 15px;
-}
+  #header {
+    margin: 0;
+    padding: 0 30px 0;
+    position: fixed;
+    z-index: 999;
+    height: auto;
+    width: auto;
+    top: 0;
+    left: 0;
+  }
+
+  #menu {
+    height: auto;
+    display: none;
+    margin: 0 20px 0;
+    padding: 0;
+    list-style-type: none;
+    line-height: 85px;
+    font-size: 65px;
+  }
+
+  a,
+  a:visited {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  a:hover {
+    color: white;
+  }
+
+  a:active {
+    color: #e4e4e4;
+  }
+
+  .image {
+    width: 90%;
+    height: 90%;
+    object-fit: contain;
+    margin: 0 5%;
+  }
+
+  .text {
+    text-align: center;
+    max-width: 100%;
+    padding: 0 10%;
+  }
+
+  #footer {
+    margin: 0;
+    width: 100%;
+    height: 65px;
+    line-height: 65px;
+    text-align: center;
+  }
+
+   /* FULLPAGE OVERRIDES END */
+
+  body {
+    margin: 0;
+    padding: 0;
+    font-size:90px;
+    font-family: orb15web, serif;
+    -webkit-touch-callout: none; /* iOS Safari */
+      -webkit-user-select: none; /* Safari */
+       -khtml-user-select: none; /* Konqueror HTML */
+         -moz-user-select: none; /* Firefox */
+          -ms-user-select: none; /* Internet Explorer/Edge */
+              user-select: none; /* Non-prefixed version, currently
+                                    supported by Chrome and Opera */
+  }
+
+  @font-face {
+      font-family: 'orb15web';
+      src: url('../orb15web.otf') format('opentype');
+  	  font-weight: normal;
+      font-style: normal;
+  }
+
+  @font-face {
+      font-family: 'dualistweb-1';
+      src: url('../dualistweb-1.otf') format('opentype');
+      	font-weight: normal;
+      	font-style: normal;
+  }
 
 
-li {
-position: absolute;
-list-style-type: none;
-color: black;
-  
-}
+  h1 {
+      margin: 0;
+      font-size: 90px;
+      line-height: 100px;
+      font: 'orb15web', serif;
+      font-weight: normal;
+  }
 
-a{
-list-style-type: none;
-color: black;
-text-decoration: none;
+  p {
+      font-size: 19px;
+      font-family: 'dualistweb-1', sans-serif;
+  }
 
-}
+  .arrow {
+      width: 30px;
+      position: absolute;
+      background-size: contain;
+      margin: 0;
+      display: none;
+  }
+
+  .arrow img {
+  	max-height: 100%;
+  	max-width: 100%;
+  }
+
+  .text {
+    position: center;
+  }
+
+  footer {
+    clear: both;
+    margin-bottom: 0;
+    margin: 0 1.5% 12px 1.5%;
+    float: left;
+  }
 
 
-@media only screen and (max-device-width: 1024px) {
-    .scroller {
-	margin: 24px 1.5% 24px 1.5%;
-  	width: 97%;
-	height: 100%;
-    	white-space: nowrap;
-   	overflow-x: auto;
-    }	  
-}
+  code {
+    background: white;
+    border-radius: 6px;
+    color: black;
+    display: block;
+    padding: 24px 15px;
+  }

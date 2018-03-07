@@ -1,18 +1,13 @@
-$(".portfolio-item").mouseover(function(){
-
-	$(this).find("p").show();
-
-});
-
-$(".portfolio-item").mouseout(function(){
-
-	$(this).find("p").hide();
-
-});
+// shows menu
 
 var isOverMenu = false;
 
 $("#menu").mouseover(function(){
+  if (!$('header').is(':hover') === true) {
+  	console.log('ahahahhaa')
+  }
+
+  console.log('jhasgdjhasg')
 
   isOverMenu = true;
 
@@ -24,12 +19,14 @@ $("#menu").mouseout(function(){
 
 });
 
+// scrolls to element
+
 $("#menu li a").click(function() {
     console.log( $(this).attr("id") );
 
     var id = $(this).attr("id");
     $('html, body').animate({
-        scrollTop: $("#" + id + "-content").offset().top + 60
+        scrollTop: $("#" + id + "-content").offset().top
     }, 1000);
 });
 
@@ -42,22 +39,25 @@ var leftLimit = screenw * .35;				 	// 30 percent of the left side of the screen
 var rightLimit = screenw - (screenw * .35); 		// 30 percent of the right part of the screen
 
 // scroll the amount of a portfolio-item (image) including the margins
-var scrollAmount = $('.portfolio-item').outerWidth(true) + 12;
+var scrollAmount = $('.portfolio-item').width() + 30;
 
 
 $(".scrollsection").click(function( event ) {
 
 
-  console.log('click')
+  console.log('scrolling: ', screenw, scrollAmount);
+
   	// find out if the click was on the left or right side of the page
 	if (event.pageX < leftLimit) {
 		// left side
-		  $(this).find('.scroller').animate({scrollLeft:'-=' + scrollAmount},300);
+		  $(this).find('.scroller').animate({scrollLeft:'-=' + scrollAmount}, 300);
+		  // $(window).animate({scrollTop: 0}, 300);
 
   	}
   	else if (event.pageX > rightLimit) {
 		// right side
-		  $(this).find('.scroller').animate({scrollLeft:'+=' + scrollAmount},300);
+		  $(this).find('.scroller').animate({scrollLeft:'+=' + scrollAmount}, 300);
+		  // $(window).animate({scrollTop: 0}, 300);
   	}
 });
 
