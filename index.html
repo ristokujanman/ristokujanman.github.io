@@ -228,7 +228,7 @@
 		<!-- END SECTION -->
 		<!-- SECTION -->
 
-		<div class="section">
+		<div class="section" id="section_info">
 			<div class="slide">
 				<div class="text">
 					<h1>Info</h1><br/>
@@ -255,14 +255,13 @@
 	</figure>
 
 <script type="text/javascript">
-
 var isMobile = false
 
 $(document).ready(function() {
 	var wW = $(window).width()
 	if (wW < 768) isMobile = true
 	$('#fullpage').fullpage({
-		anchors: ['kiki', 'mervi', 'hermesaphrodite', 'pingpong', 'putte', 'dialogue', 'wash', 'info', 'foot'],
+		anchors: ['kiki', 'putte', 'pingpong', 'hermesaphrodite', 'mervi', 'dialogue', 'wash', 'info', 'foot'],
 		menu: '#menu',
 		controlArrows: false
 	});
@@ -270,6 +269,7 @@ $(document).ready(function() {
 
 var isOverMenu = false
 var isOverLink = false
+var isOverInfo = false
 
 $('body').css('cursor', 'none');
 
@@ -283,6 +283,13 @@ $('#header').on('mouseover', function() {
 }).on('mouseout', function() {
 	isOverMenu = false
 	$('#menu').hide()
+})
+
+$('#section_info').on('mouseover', function() {
+	isOverInfo = true
+	$('#arrow-right', '#arrow-left').hide();
+}).on('mouseout', function() {
+	isOverInfo = false
 })
 
 $('a').on('mouseover', function() {
@@ -306,7 +313,7 @@ $(document).on('click', function(event) {
 });
 
 $('body').on('mousemove', function(event) {
-	if (!isOverLink) {
+	if (!isOverLink && !isOverInfo) {
 		if (event.screenX > breakPoint) {
 			$('#arrow-left').fadeOut(50, function(){
 				$('body').css('cursor', 'none');
@@ -329,7 +336,10 @@ $('body').on('mousemove', function(event) {
 			}
 		}
 	} else {
-		console.log('hide the ffjhfgfjhg arrows')
+		if (isOverInfo) {
+			console.log('is over info')
+			$('body').css('cursor', 'default')
+		}
 		$('#arrow-right').hide();
 		$('#arrow-left').hide();
 	}
