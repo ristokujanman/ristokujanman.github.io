@@ -40,7 +40,7 @@ body {
 p {
   margin-bottom: 1em;
   line-height: 1.6;
-  white-space: normal;
+  white-space: pre-line;
 }
 a:link {
   color: #000000;
