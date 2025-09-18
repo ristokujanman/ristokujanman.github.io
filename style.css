@@ -53,8 +53,13 @@ body {
 /* Paragraph */
 p {
   display: block;
-  margin: 0;          /* No vertical spacing */
-  text-indent: 2em;   /* First-line indent */
+  margin: 0;
+  text-indent: 1.2em; /* Slightly reduced indent */
+}
+
+/* No indent for the very first paragraph */
+p:first-of-type {
+  text-indent: 0;
 }
 
 /* Remove indent and margin for signature and footer paragraphs */
