@@ -37,9 +37,6 @@ body {
   -ms-transform: translate(-50%);
   transform: translate(-50%);
 }
-p {
-  display: inline;
-}
 a:link {
   color: #000000;
   text-decoration-line: underline;
