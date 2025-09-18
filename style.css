@@ -1,28 +1,27 @@
-/* Font Faces */
 @font-face {
   font-family: RizomaS-italic;
-  src: url('RizomaS-Italic.woff2') format('woff2');
+  src: url('https://raw.githubusercontent.com/ristokujanman/ristokujanman.github.io/master/RizomaS-LightItalic.woff2') format('woff2');
   font-weight: normal;
   font-style: italic;
 }
 
 @font-face {
   font-family: RizomaS-regular;
-  src: url('RizomaS-Regular.woff2') format('woff2');
+  src: url('https://raw.githubusercontent.com/ristokujanman/ristokujanman.github.io/master/RizomaS-Light.woff2') format('woff2');
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: RizomaS-light;
-  src: url('RizomaS-Light.woff2') format('woff2');
+  src: url('https://raw.githubusercontent.com/ristokujanman/ristokujanman.github.io/master/RizomaS-Light.woff2') format('woff2');
   font-weight: 300;
   font-style: normal;
 }
 
 @font-face {
   font-family: RizomaS-light-italic;
-  src: url('RizomaS-LightItalic.woff2') format('woff2');
+  src: url('https://raw.githubusercontent.com/ristokujanman/ristokujanman.github.io/master/RizomaS-LightItalic.woff2') format('woff2');
   font-weight: 300;
   font-style: italic;
 }
@@ -39,22 +38,22 @@ body {
   font-variant: oldstyle-nums;
   font-weight: 300;
   font-style: normal;
-  margin: 0; /* reset default margin */
+  margin: 0; /* Reset default margin */
 }
 
 /* Container */
 .text_container {
   max-width: 500px;
-  margin: 24px auto 24px auto;
+  margin: 24px auto;
   padding-bottom: 24px;
   position: relative;
 }
 
-/* Paragraph */
+/* Paragraphs with first line indent */
 p {
   display: block;
   margin: 0;
-  text-indent: 1.2em; /* Slightly reduced indent */
+  text-indent: 1.2em; /* First line indent */
 }
 
 /* No indent for the very first paragraph */
