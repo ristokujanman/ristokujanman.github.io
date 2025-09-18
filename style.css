@@ -37,6 +37,11 @@ body {
   -ms-transform: translate(-50%);
   transform: translate(-50%);
 }
+p {
+  margin-bottom: 1em;
+  line-height: 1.6;
+  white-space: normal;
+}
 a:link {
   color: #000000;
   text-decoration-line: underline;
