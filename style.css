@@ -14,22 +14,26 @@
   font-family: RizomaS-light-italic;
   src: url(RizomaS-LightItalic.woff2);
 }
-/*@page {
+
+/* @page {
   size: 21cm 29.7cm;
   margin: 30mm 50mm 30mm 50mm;
-}*/
+} */
+
 html {
   font-size: 24px;
 }
+
 body {
   font-family: RizomaS-light, serif;
   color: #000000;
   line-height: 1.4;
   font-variant: oldstyle-nums;
 }
+
 .text_container {
   width: 500px;
-  margin: auto;
+  /* Removed margin:auto because position absolute */
   position: absolute;
   margin-top: 24px;
   padding-bottom: 24px;
@@ -37,35 +41,39 @@ body {
   -ms-transform: translate(-50%);
   transform: translate(-50%);
 }
+
 p {
-  display: inline;
+  /* Changed from inline to block */
+  display: block;
 }
-a:link {
+
+a:link,
+a:visited {
   color: #000000;
-  text-decoration-line: underline;
-  text-decoration-thickness: 0.05rem;
-  text-underline-offset: 0.15rem;
   text-decoration: none;
   font-family: RizomaS-light-italic, serif;
 }
-a:visited {
-  color: #000000;
-}
+
 a:hover {
   color: red;
 }
+
 a:active {
   color: #000000;
 }
+
 a.small {
   font-variant: small-caps;
 }
+
 .i {
   font-family: RizomaS-light-italic, serif;
 }
+
 .small {
   font-variant: small-caps;
 }
+
 .signature {
   display: block;
   margin: 0;
@@ -74,19 +82,23 @@ a.small {
   font-variant-ligatures: discretionary-ligatures;
   margin-top: 12px;
 }
+
 .footer {
   margin: 0;
   font-variant: small-caps;
   font-size: 0.5em;
   margin-top: -16px;
 }
+
 .footer .i {
   font-family: RizomaS-light-italic, serif;
 }
+
 @media screen and (max-width: 980px) {
   html {
     font-size: 64px;
   }
+
   .text_container {
     width: 90vw;
     margin: auto;
@@ -97,11 +109,13 @@ a.small {
     transform: none;
     margin-top: none;
   }
+
   .signature {
     display: flex;
     justify-content: flex-end;
     margin-top: 48px;
   }
+
   .footer {
     margin-top: 72px;
   }
