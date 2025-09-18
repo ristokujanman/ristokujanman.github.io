@@ -38,9 +38,9 @@ body {
   transform: translate(-50%);
 }
 p {
-  white-space: pre-line;
-  line-height: 1.6;
   margin-bottom: 1em;
+  line-height: 1.6;
+  white-space: normal;
 }
 a:link {
   color: #000000;
