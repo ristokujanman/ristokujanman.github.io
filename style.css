@@ -63,7 +63,7 @@ p {
 
 /* Indentation: indent paragraphs except first */
 .indent p {
-  text-indent: 1.2em;
+  text-indent: 1.2em; /* 1.2 times the font size */
 }
 
 .no-indent p {
