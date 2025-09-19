@@ -1,4 +1,3 @@
-@font-face {
   font-family: 'RizomaS-light';
   src: url("https://raw.githubusercontent.com/ristokujanman/ristokujanman.github.io/master/RizomaS-Light.woff2") format("woff2");
   font-weight: 300;
@@ -77,10 +76,10 @@ a.small {
   font-variant: small-caps;
 }
 
-/* Signature style (updated to match main text size) */
+/* Signature style (updated to match main text size and added space) */
 .signature {
   text-align: right;  /* Right-align the signature within the container */
-  margin-top: 20px;   /* Adjust space above the signature */
+  margin-top: 40px;   /* Increased space above the signature */
   font-family: 'RizomaS-light', serif;
   font-style: italic;
   font-size: 1em; /* Same as main body text */
