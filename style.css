@@ -22,20 +22,17 @@ body {
   color: #000000;
   line-height: 1.4;
   font-variant: oldstyle-nums;
+  margin: 0;
+  padding: 0;
 }
 
 .text_container {
   width: 500px;
   margin: auto;
-  position: absolute;
-  margin-top: 24px;
   padding-bottom: 24px;
-  left: 50%;
-  -ms-transform: translate(-50%);
-  transform: translate(-50%);
+  margin-top: 24px;
 }
 
-/* Paragraphs as blocks, no vertical margin */
 .indent p {
   display: block;
   margin: 0;
@@ -43,7 +40,6 @@ body {
   line-height: 1.4;
 }
 
-/* First paragraph no indent */
 .indent p.no-indent {
   text-indent: 0;
 }
@@ -97,7 +93,7 @@ a.small {
   margin: 0;
   font-variant: small-caps;
   font-size: 0.5em;
-  margin-top: -16px;
+  margin-top: 72px;
 }
 
 .footer .i {
@@ -107,7 +103,7 @@ a.small {
 
 @media screen and (max-width: 980px) {
   html {
-    font-size: 64px; /* BIG font on mobile */
+    font-size: 64px; /* Big font size for mobile */
   }
   .text_container {
     width: 90vw;
@@ -115,9 +111,6 @@ a.small {
     position: relative;
     top: 0;
     left: 0;
-    -ms-transform: none;
-    transform: none;
-    margin-top: none;
   }
   .signature {
     display: flex;
