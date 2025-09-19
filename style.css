@@ -78,12 +78,11 @@ a.small {
 }
 
 .signature {
-  display: block;
-  margin-top: 24px;  /* Space above the signature */
-  text-align: right;  /* Justified to the right */
+  text-align: right;  /* Right-align the signature within the container */
+  margin-top: 20px;   /* Adjust space above the signature */
   font-family: 'RizomaS-light', serif;
   font-style: italic;
-  font-size: 1.2em; /* Optional: size adjustment for signature text */
+  font-size: 1.2em; /* Optional: adjust size */
 }
 
 .footer {
