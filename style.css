@@ -1,6 +1,6 @@
 @font-face {
   font-family: RizomaS-italic;
-  src: url("https://github.com/ristokujanman/ristokujanman.github.io/raw/master/RizomaS-LightItalic.woff2") format("woff2");
+  src: url("https://raw.githubusercontent.com/ristokujanman/ristokujanman.github.io/master/RizomaS-LightItalic.woff2") format("woff2");
   font-style: italic;
   font-weight: 300;
 }
@@ -12,21 +12,21 @@
 
 @font-face {
   font-family: RizomaS-light;
-  src: url("https://github.com/ristokujanman/ristokujanman.github.io/raw/master/RizomaS-Light.woff2") format("woff2");
+  src: url("https://raw.githubusercontent.com/ristokujanman/ristokujanman.github.io/master/RizomaS-Light.woff2") format("woff2");
   font-weight: 300;
 }
 
 @font-face {
   font-family: RizomaS-light-italic;
-  src: url("https://github.com/ristokujanman/ristokujanman.github.io/raw/master/RizomaS-LightItalic.woff2") format("woff2");
+  src: url("https://raw.githubusercontent.com/ristokujanman/ristokujanman.github.io/master/RizomaS-LightItalic.woff2") format("woff2");
   font-style: italic;
   font-weight: 300;
 }
 
-/* @page {
+/*@page {
   size: 21cm 29.7cm;
   margin: 30mm 45mm 30mm 45mm;
-} */
+}*/
 
 html {
   font-size: 24px;
@@ -54,13 +54,14 @@ p {
   display: inline;
 }
 
-/* Paragraph indent for 2nd–5th paragraphs */
-.indent::first-line {
-  text-indent: 1.2em;
+/* Minimal indentation fix using padding-left */
+p.indent {
+  padding-left: 1.2em; /* simulates first-line indent */
+  text-indent: 0;      /* disables text-indent to avoid conflict */
 }
 
-/* No indent for the first paragraph */
-.no-indent::first-line {
+p.no-indent {
+  padding-left: 0;
   text-indent: 0;
 }
 
@@ -121,7 +122,6 @@ a.small {
   html {
     font-size: 64px;
   }
-
   .text_container {
     width: 90vw;
     margin: auto;
@@ -132,13 +132,11 @@ a.small {
     transform: none;
     margin-top: none;
   }
-
   .signature {
     display: flex;
     justify-content: flex-end;
     margin-top: 48px;
   }
-
   .footer {
     margin-top: 72px;
   }
