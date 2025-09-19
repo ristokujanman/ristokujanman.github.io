@@ -12,11 +12,6 @@
   font-style: italic;
 }
 
-/*@page {
-  size: 21cm 29.7cm;
-  margin: 30mm 45mm 30mm 45mm;
-}*/
-
 html {
   font-size: 24px;
 }
@@ -40,14 +35,15 @@ body {
   transform: translate(-50%);
 }
 
-/* All paragraphs inline, no margin */
+/* Paragraphs as blocks, no vertical margin */
 .indent p {
-  display: inline;
+  display: block;
   margin: 0;
-  text-indent: 1.2em; /* indent for all */
+  text-indent: 1.2em;
+  line-height: 1.4;
 }
 
-/* Remove indent from first paragraph */
+/* First paragraph no indent */
 .indent p.no-indent {
   text-indent: 0;
 }
@@ -58,7 +54,7 @@ a:link {
   text-decoration-thickness: 0.05rem;
   text-underline-offset: 0.15rem;
   text-decoration: none;
-  font-style: italic; /* italic triggers italic font */
+  font-style: italic;
   font-family: 'RizomaS-light', serif;
 }
 
@@ -111,7 +107,7 @@ a.small {
 
 @media screen and (max-width: 980px) {
   html {
-    font-size: 64px;
+    font-size: 64px; /* BIG font on mobile */
   }
   .text_container {
     width: 90vw;
