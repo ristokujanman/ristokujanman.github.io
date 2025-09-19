@@ -77,16 +77,16 @@ a.small {
   font-variant: small-caps;
 }
 
-/* Signature style (updated to match main text size) */
+/* Signature style */
 .signature {
   text-align: right;  /* Right-align the signature within the container */
-  margin-top: 20px;   /* Adjust space above the signature */
+  margin-top: 40px;
   font-family: 'RizomaS-light', serif;
   font-style: italic;
   font-size: 1em; /* Same as main body text */
 }
 
-/* Footer remains unchanged */
+/* Footer */
 .footer {
   margin: 0;
   font-variant: small-caps;
@@ -99,10 +99,12 @@ a.small {
   font-family: 'RizomaS-light', serif;
 }
 
+/* Mobile responsive adjustments */
 @media screen and (max-width: 980px) {
   html {
-    font-size: 64px; /* Big font size for mobile */
+    font-size: 48px; /* Set font size to 48px for mobile */
   }
+
   .text_container {
     width: 90vw;
     margin: auto;
@@ -110,11 +112,13 @@ a.small {
     top: 0;
     left: 0;
   }
+
   .signature {
     display: flex;
     justify-content: flex-end;
     margin-top: 48px;
   }
+
   .footer {
     margin-top: 72px;
   }
