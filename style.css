@@ -85,10 +85,11 @@ a.small {
   font-size: 1.2em; /* Optional: adjust size */
 }
 
+/* Footer adjusted to match main body text size */
 .footer {
   margin: 0;
   font-variant: small-caps;
-  font-size: 0.5em;
+  font-size: 1em; /* Same as main body text */
   margin-top: 72px;
 }
 
