@@ -77,19 +77,20 @@ a.small {
   font-variant: small-caps;
 }
 
+/* Signature style (updated to match main text size) */
 .signature {
   text-align: right;  /* Right-align the signature within the container */
   margin-top: 20px;   /* Adjust space above the signature */
   font-family: 'RizomaS-light', serif;
   font-style: italic;
-  font-size: 1.2em; /* Optional: adjust size */
+  font-size: 1em; /* Same as main body text */
 }
 
-/* Footer adjusted to match main body text size */
+/* Footer remains unchanged */
 .footer {
   margin: 0;
   font-variant: small-caps;
-  font-size: 1em; /* Same as main body text */
+  font-size: 0.5em;
   margin-top: 72px;
 }
 
