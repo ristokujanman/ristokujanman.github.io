@@ -7,7 +7,7 @@
 
 @font-face {
   font-family: RizomaS-regular;
-  src: url();
+  /* No source file specified, so you might want to add it or remove this */
 }
 
 @font-face {
@@ -50,18 +50,23 @@ body {
   transform: translate(-50%);
 }
 
+/* Paragraph containers: force block and vertical spacing */
+.para {
+  display: block;
+  margin-bottom: 1em; /* space between paragraphs */
+}
+
+/* Paragraphs themselves remain inline */
 p {
   display: inline;
 }
 
-/* Minimal indentation fix using padding-left */
-p.indent {
-  padding-left: 1.2em; /* simulates first-line indent */
-  text-indent: 0;      /* disables text-indent to avoid conflict */
+/* Indentation: indent paragraphs except first */
+.indent p {
+  text-indent: 1.2em;
 }
 
-p.no-indent {
-  padding-left: 0;
+.no-indent p {
   text-indent: 0;
 }
 
