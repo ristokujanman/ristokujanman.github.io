@@ -33,15 +33,13 @@ body {
   margin-top: 24px;
 }
 
-.indent p {
-  display: block;
+.text_container p {
   margin: 0;
-  text-indent: 1.2em;
   line-height: 1.4;
 }
 
-.indent p.no-indent {
-  text-indent: 0;
+.text_container p:not(:first-child) {
+  text-indent: 1.2em;
 }
 
 a:link {
