@@ -40,23 +40,15 @@ body {
   transform: translate(-50%);
 }
 
-/* Paragraph containers: force block and vertical spacing */
-.para {
-  display: block;
-  margin-bottom: 1em; /* space between paragraphs */
-}
-
-/* Paragraphs remain inline */
-p {
-  display: inline;
-}
-
-/* Indent paragraphs except first */
+/* All paragraphs inline, no margin */
 .indent p {
-  text-indent: 1.2em;
+  display: inline;
+  margin: 0;
+  text-indent: 1.2em; /* indent for all */
 }
 
-.no-indent p {
+/* Remove indent from first paragraph */
+.indent p.no-indent {
   text-indent: 0;
 }
 
@@ -66,7 +58,7 @@ a:link {
   text-decoration-thickness: 0.05rem;
   text-underline-offset: 0.15rem;
   text-decoration: none;
-  font-style: italic; /* use italic style, will trigger italic font */
+  font-style: italic; /* italic triggers italic font */
   font-family: 'RizomaS-light', serif;
 }
 
@@ -87,7 +79,7 @@ a.small {
 }
 
 .i {
-  font-style: italic; /* italic style triggers italic font */
+  font-style: italic;
   font-family: 'RizomaS-light', serif;
 }
 
