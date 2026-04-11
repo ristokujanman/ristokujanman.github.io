@@ -1,125 +1,116 @@
 @font-face {
-  font-family: 'RizomaS-light';
-  src: url("https://raw.githubusercontent.com/ristokujanman/ristokujanman.github.io/master/RizomaS-Light.woff2") format("woff2");
-  font-weight: 300;
-  font-style: normal;
+    font-family: "RizomaS-light";
+    src: url("https://raw.githubusercontent.com/ristokujanman/ristokujanman.github.io/master/RizomaS-Light.woff2")
+        format("woff2");
+    font-weight: 300;
+    font-style: normal;
 }
 
 @font-face {
-  font-family: 'RizomaS-light';
-  src: url("https://raw.githubusercontent.com/ristokujanman/ristokujanman.github.io/master/RizomaS-LightItalic.woff2") format("woff2");
-  font-weight: 300;
-  font-style: italic;
+    font-family: "RizomaS-light";
+    src: url("https://raw.githubusercontent.com/ristokujanman/ristokujanman.github.io/master/RizomaS-LightItalic.woff2")
+        format("woff2");
+    font-weight: 300;
+    font-style: italic;
 }
 
 html {
-  font-size: 24px;
+    font-size: 24px;
 }
 
 body {
-  font-family: 'RizomaS-light', serif;
-  font-weight: 300;
-  color: #000000;
-  line-height: 1.4;
-  font-variant: oldstyle-nums;
-  margin: 0;
-  padding: 0;
+    font-family: "RizomaS-light", serif;
+    font-weight: 300;
+    color: #000000;
+    line-height: 1.4;
+    font-variant: oldstyle-nums;
+    margin: 0;
+    padding: 0;
 }
 
 .text_container {
-  width: 500px;
-  margin: auto;
-  padding-bottom: 24px;
-  margin-top: 24px;
+    width: 500px;
+    max-width: 90vw;
+    margin: auto;
+    padding-bottom: 24px;
+    margin-top: 24px;
 }
 
 .text_container p {
-  margin: 0;
-  line-height: 1.4;
+    margin: 0;
+    line-height: 1.4;
 }
 
 .text_container p:not(:first-child) {
-  text-indent: 1.2em;
+    text-indent: 1.2em;
 }
 
 a:link {
-  color: #000000;
-  text-decoration-line: underline;
-  text-decoration-thickness: 0.05rem;
-  text-underline-offset: 0.15rem;
-  text-decoration: none;
-  font-style: italic;
-  font-family: 'RizomaS-light', serif;
+    color: #000000;
+    text-decoration-line: underline;
+    text-decoration-thickness: 0.05rem;
+    text-underline-offset: 0.15rem;
+    text-decoration: none;
+    font-style: italic;
+    font-family: "RizomaS-light", serif;
 }
 
 a:visited {
-  color: #000000;
+    color: #000000;
 }
 
 a:hover {
-  color: red;
+    color: red;
 }
 
 a:active {
-  color: #000000;
+    color: #000000;
 }
 
 a.small {
-  font-variant: small-caps;
+    font-variant: small-caps;
 }
 
 .i {
-  font-style: italic;
-  font-family: 'RizomaS-light', serif;
+    font-style: italic;
+    font-family: "RizomaS-light", serif;
 }
 
 .small {
-  font-variant: small-caps;
+    font-variant: small-caps;
 }
 
 /* Signature style */
 .signature {
-  text-align: right;  /* Right-align the signature within the container */
-  margin-top: 40px;
-  font-family: 'RizomaS-light', serif;
-  font-style: italic;
-  font-size: 1em; /* Same as main body text */
+    text-align: right; /* Right-align the signature within the container */
+    margin-top: 40px;
+    font-family: "RizomaS-light", serif;
+    font-style: italic;
+    font-size: 1em; /* Same as main body text */
 }
 
 /* Footer */
 .footer {
-  margin: 0;
-  font-variant: small-caps;
-  font-size: 0.5em;
-  margin-top: 72px;
+    margin: 0;
+    font-variant: small-caps;
+    font-size: 0.5em;
+    margin-top: 72px;
 }
 
 .footer .i {
-  font-style: italic;
-  font-family: 'RizomaS-light', serif;
+    font-style: italic;
+    font-family: "RizomaS-light", serif;
 }
 
 /* Mobile responsive adjustments */
 @media screen and (max-width: 980px) {
-  html {
-    font-size: 48px; /* Set font size to 48px for mobile */
-  }
+    .signature {
+        display: flex;
+        justify-content: flex-end;
+        margin-top: 48px;
+    }
 
-  .text_container {
-    width: 90vw;
-    margin: auto;
-    position: relative;
-    top: 0;
-    left: 0;
-  }
-
-  .signature {
-    display: flex;
-    justify-content: flex-end;
-    margin-top: 48px;
-  }
-
-  .footer {
-    margin-top: 72px;
-  }
+    .footer {
+        margin-top: 72px;
+    }
 }
