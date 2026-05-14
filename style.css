@@ -16,19 +16,26 @@
 
 html {
     font-size: 24px;
+    max-width: 100%;
+    overflow-x: hidden;
 }
 
 body {
     font-family: "RizomaS-light", serif;
     font-weight: 300;
     color: #000000;
+    background: #ffffff;
     line-height: 1.4;
     font-variant: oldstyle-nums;
     margin: 0;
     padding: 0;
+    max-width: 100%;
+    overflow-x: hidden;
+    overscroll-behavior-x: none;
 }
 
 .text_container {
+    position: relative;
     width: 500px;
     max-width: 90vw;
     margin: auto;
@@ -67,6 +74,64 @@ a:active {
     color: #000000;
 }
 
+.text_container.text-string-ready .text-string-source,
+.text_container.text-string-ready .text-string-source a {
+    color: transparent;
+    text-decoration-color: transparent;
+    caret-color: transparent;
+}
+
+.text_container.text-string-ready .text-string-source a:hover,
+.text_container.text-string-ready .text-string-source a:focus {
+    color: transparent;
+}
+
+.text-string-layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    overflow: visible;
+    pointer-events: none;
+    z-index: 2;
+}
+
+.text-string-letter {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: inline-block;
+    color: #000000;
+    font-family: "RizomaS-light", serif;
+    font-size: 1rem;
+    font-weight: 300;
+    font-variant: oldstyle-nums;
+    white-space: pre;
+    user-select: none;
+    pointer-events: none;
+    will-change: transform;
+}
+
+.text-string-letter.is-link {
+    font-style: italic;
+}
+
+.text-string-letter.is-link-active {
+    color: red;
+}
+
+.text-string-letter.is-draggable {
+    cursor: grab;
+    min-width: 0.9em;
+    pointer-events: auto;
+    touch-action: none;
+}
+
+.text-string-letter.is-dragging {
+    cursor: grabbing;
+    z-index: 3;
+}
+
 a.small {
     font-variant: small-caps;
 }
@@ -92,9 +157,9 @@ a.small {
 /* Footer */
 .footer {
     margin: 0;
+    margin-top: 338px;
     font-variant: small-caps;
     font-size: 0.5em;
-    margin-top: 72px;
 }
 
 .footer .i {
@@ -111,6 +176,6 @@ a.small {
     }
 
     .footer {
-        margin-top: 72px;
+        margin-top: 380px;
     }
 }
