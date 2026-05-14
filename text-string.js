@@ -15,6 +15,7 @@ const config = {
     gravity: 0.18,
     fixedDt: 1 / 120,
     maxSteps: 4,
+    affordanceDelay: 1000,
 };
 
 const supportsSegmenter = typeof Intl !== "undefined" && "Segmenter" in Intl;
@@ -50,6 +51,7 @@ class TextString {
         this.overlay = document.createElement("div");
         this.overlay.className = "text-string-layer";
         this.overlay.setAttribute("aria-hidden", "true");
+        this.affordance = this.createAffordance();
 
         this.letters = [];
         this.elements = [];
@@ -63,6 +65,9 @@ class TextString {
         this.userInteracted = false;
         this.tailCueDropped = false;
         this.scrollTicking = false;
+        this.affordanceVisible = false;
+        this.affordancePlaced = false;
+        this.affordanceTimer = 0;
         this.resizeTimer = 0;
 
         this.onPointerDown = this.onPointerDown.bind(this);
@@ -123,12 +128,14 @@ class TextString {
         this.drags.clear();
         this.started = false;
         this.tailCueDropped = false;
+        this.hideAffordance();
         this.lastTime = -1;
         this.accumulator = 0;
         this.overlay.replaceChildren();
         this.letters = this.buildLetters();
         this.elements = this.letters.map((letter, index) => this.createLetterElement(letter, index));
         this.elements.forEach((element) => this.overlay.appendChild(element));
+        this.overlay.appendChild(this.affordance);
         this.overlay.style.height = `${this.container.scrollHeight}px`;
         this.restLengths = this.computeRestLengths();
         this.armTail();
@@ -241,6 +248,19 @@ class TextString {
         return element;
     }
 
+    createAffordance() {
+        const affordance = document.createElement("div");
+        affordance.className = "text-string-affordance";
+        affordance.innerHTML = `
+            <svg class="text-string-affordance-arrow" viewBox="0 0 164 84" focusable="false">
+                <path d="M50 72 C58 50 92 25 145 15" />
+                <path d="M126 10 L145 15 L132 29" />
+            </svg>
+            <span>Drag me</span>
+        `;
+        return affordance;
+    }
+
     computeRestLengths() {
         const restLengths = [];
 
@@ -280,6 +300,7 @@ class TextString {
         const letter = this.letters[index];
         this.userInteracted = true;
         this.started = true;
+        this.hideAffordance();
         this.drags.set(event.pointerId, {
             index,
             offsetX: event.clientX - rect.left - letter.x,
@@ -342,6 +363,8 @@ class TextString {
         this.started = false;
         this.userInteracted = false;
         this.tailCueDropped = false;
+        this.affordancePlaced = false;
+        this.hideAffordance();
 
         for (let index = 0; index < this.letters.length; index += 1) {
             const letter = this.letters[index];
@@ -377,6 +400,7 @@ class TextString {
         });
 
         this.ensureLoop();
+        this.scheduleAffordance();
     }
 
     ensureLoop() {
@@ -580,6 +604,71 @@ class TextString {
             const letter = this.letters[index];
             this.elements[index].style.transform = `translate(${letter.x}px, ${letter.y}px)`;
         }
+    }
+
+    showAffordance() {
+        this.affordanceVisible = true;
+        this.affordance.classList.add("is-visible");
+        this.positionAffordance(true);
+    }
+
+    scheduleAffordance() {
+        window.clearTimeout(this.affordanceTimer);
+        this.affordanceTimer = window.setTimeout(() => {
+            this.affordanceTimer = 0;
+            if (!this.tailCueDropped || this.userInteracted) return;
+            this.showAffordance();
+        }, config.affordanceDelay);
+    }
+
+    hideAffordance() {
+        window.clearTimeout(this.affordanceTimer);
+        this.affordanceTimer = 0;
+        this.affordanceVisible = false;
+        this.affordancePlaced = false;
+        this.affordance.classList.remove("is-visible");
+    }
+
+    positionAffordance(force = false) {
+        if (!this.affordanceVisible || !this.tailIndices.length) return;
+        if (this.affordancePlaced && !force) return;
+
+        const rect = this.container.getBoundingClientRect();
+        const tail = this.tailBounds();
+        if (tail === null) return;
+
+        const affordanceWidth = 132;
+        const affordanceHeight = 92;
+        const targetX = tail.left + tail.width * 0.5;
+        const targetY = tail.top + tail.height * 0.2;
+        const minX = -rect.left + 12;
+        const maxX = viewportWidth() - rect.left - affordanceWidth - 12;
+        const minY = -rect.top + 12;
+        const maxY = viewportHeight() - rect.top - affordanceHeight - 12;
+        const x = clamp(targetX - 154, minX, maxX);
+        const y = clamp(targetY + 28, minY, maxY);
+
+        this.affordance.style.transform = `translate(${x}px, ${y}px)`;
+        this.affordancePlaced = true;
+    }
+
+    tailBounds() {
+        let left = Number.POSITIVE_INFINITY;
+        let top = Number.POSITIVE_INFINITY;
+        let right = Number.NEGATIVE_INFINITY;
+        let bottom = Number.NEGATIVE_INFINITY;
+
+        for (const index of this.tailIndices) {
+            const letter = this.letters[index];
+            if (!letter) continue;
+            left = Math.min(left, letter.x);
+            top = Math.min(top, letter.y);
+            right = Math.max(right, letter.x + letter.w);
+            bottom = Math.max(bottom, letter.y + letter.h);
+        }
+
+        if (!Number.isFinite(left)) return null;
+        return { left, top, width: right - left, height: bottom - top };
     }
 
     isDragged(index) {
