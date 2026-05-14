@@ -16,6 +16,7 @@ const config = {
     fixedDt: 1 / 120,
     maxSteps: 4,
     affordanceDelay: 1000,
+    browserLayoutBreakpoint: 980,
 };
 
 const supportsSegmenter = typeof Intl !== "undefined" && "Segmenter" in Intl;
@@ -23,11 +24,7 @@ const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)
 
 if (supportsSegmenter && !prefersReducedMotion.matches) {
     const boot = async () => {
-        try {
-            await document.fonts?.ready;
-        } catch {
-            // The effect is decorative; keep the page normal if font loading is unavailable.
-        }
+        await waitForRizomaFonts();
 
         const container = document.querySelector(".text_container");
         if (container) new TextString(container).mount();
@@ -143,6 +140,15 @@ class TextString {
     }
 
     buildLetters() {
+        if (usesBrowserLayout()) {
+            const browserLetters = this.buildBrowserLetters();
+            if (browserLetters.length) return browserLetters;
+        }
+
+        return this.buildPretextLetters();
+    }
+
+    buildPretextLetters() {
         const containerRect = this.container.getBoundingClientRect();
         const visualLines = [];
 
@@ -220,6 +226,88 @@ class TextString {
         });
 
         return ordered;
+    }
+
+    buildBrowserLetters() {
+        const containerRect = this.container.getBoundingClientRect();
+        const letters = [];
+
+        for (const source of this.sources) {
+            const walker = document.createTreeWalker(source, NodeFilter.SHOW_TEXT);
+            let pendingSpace = null;
+            let sourceHasLetters = false;
+            let node = walker.nextNode();
+
+            while (node) {
+                const parent = node.parentElement || source;
+                const style = window.getComputedStyle(parent);
+                const linkId = parent.closest("a")?.dataset.textStringLink || "";
+
+                for (const part of this.segmenter.segment(node.nodeValue || "")) {
+                    const ch = part.segment;
+                    const start = part.index;
+                    const end = start + ch.length;
+
+                    if (isCollapsibleSpace(ch)) {
+                        if (sourceHasLetters) pendingSpace = { node, start, end, style, linkId };
+                        continue;
+                    }
+
+                    if (pendingSpace) {
+                        const letter = this.createBrowserLetter(pendingSpace, " ", containerRect);
+                        if (letter) {
+                            letters.push(letter);
+                            sourceHasLetters = true;
+                        }
+                        pendingSpace = null;
+                    }
+
+                    const letter = this.createBrowserLetter({ node, start, end, style, linkId }, ch, containerRect);
+                    if (letter) {
+                        letters.push(letter);
+                        sourceHasLetters = true;
+                    }
+                }
+
+                node = walker.nextNode();
+            }
+        }
+
+        return orderVisualLines(letters);
+    }
+
+    createBrowserLetter(source, ch, containerRect) {
+        const range = document.createRange();
+        range.setStart(source.node, source.start);
+        range.setEnd(source.node, source.end);
+        const rect = visibleRangeRect(range);
+        range.detach();
+
+        if (rect === null) return null;
+
+        const font = canvasFont(source.style, source);
+        const measuredWidth = measureGrapheme(this.measureContext, ch, font);
+        const lineHeight = px(source.style.lineHeight, px(source.style.fontSize, 24) * 1.4);
+        const x = rect.left - containerRect.left;
+        const y = rect.top - containerRect.top;
+        const width = Math.max(rect.width, measuredWidth, ch === " " ? measuredWidth : 1);
+
+        return {
+            ch,
+            display: ch === " " ? "\u00a0" : ch,
+            x,
+            y,
+            ox: x,
+            oy: y,
+            px: x,
+            py: y,
+            w: width,
+            h: lineHeight,
+            fontStyle: source.style.fontStyle,
+            fontVariant: source.style.fontVariant,
+            linkId: source.linkId,
+            locked: true,
+        };
     }
 
     createLetterElement(letter, index) {
@@ -637,16 +725,18 @@ class TextString {
         const tail = this.tailBounds();
         if (tail === null) return;
 
-        const affordanceWidth = 132;
-        const affordanceHeight = 92;
+        const affordanceRect = this.affordance.getBoundingClientRect();
+        const affordanceWidth = affordanceRect.width || 132;
+        const affordanceHeight = affordanceRect.height || 92;
         const targetX = tail.left + tail.width * 0.5;
         const targetY = tail.top + tail.height * 0.2;
         const minX = -rect.left + 12;
         const maxX = viewportWidth() - rect.left - affordanceWidth - 12;
         const minY = -rect.top + 12;
         const maxY = viewportHeight() - rect.top - affordanceHeight - 12;
-        const x = clamp(targetX - 154, minX, maxX);
-        const y = clamp(targetY + 28, minY, maxY);
+        const isMobile = usesBrowserLayout();
+        const x = isMobile ? clamp(tail.left - 116, minX, maxX) : clamp(targetX - 154, minX, maxX);
+        const y = isMobile ? clamp(tail.bottom - 24, minY, maxY) : clamp(targetY + 28, minY, maxY);
 
         this.affordance.style.transform = `translate(${x}px, ${y}px)`;
         this.affordancePlaced = true;
@@ -668,7 +758,7 @@ class TextString {
         }
 
         if (!Number.isFinite(left)) return null;
-        return { left, top, width: right - left, height: bottom - top };
+        return { left, top, right, bottom, width: right - left, height: bottom - top };
     }
 
     isDragged(index) {
@@ -678,6 +768,81 @@ class TextString {
 
         return false;
     }
+}
+
+async function waitForRizomaFonts() {
+    try {
+        if (!document.fonts?.load) return;
+
+        await Promise.all([
+            document.fonts.load('300 1rem "RizomaS-light"'),
+            document.fonts.load('italic 300 1rem "RizomaS-light"'),
+        ]);
+        await document.fonts.ready;
+        await nextFrame();
+        await nextFrame();
+    } catch {
+        // The effect is decorative; keep the page normal if font loading is unavailable.
+    }
+}
+
+function nextFrame() {
+    return new Promise((resolve) => requestAnimationFrame(resolve));
+}
+
+function usesBrowserLayout() {
+    return viewportWidth() <= config.browserLayoutBreakpoint;
+}
+
+function visibleRangeRect(range) {
+    for (const rect of range.getClientRects()) {
+        if (rect.width > 0.01 && rect.height > 0.01) return rect;
+    }
+
+    const rect = range.getBoundingClientRect();
+    if (rect.width > 0.01 && rect.height > 0.01) return rect;
+    return null;
+}
+
+function orderVisualLines(letters) {
+    const lines = [];
+    const orderedLetters = [...letters].sort((a, b) => a.y - b.y || a.x - b.x);
+
+    for (const letter of orderedLetters) {
+        const threshold = Math.max(4, letter.h * 0.5);
+        let line = lines.find((item) => Math.abs(item.y - letter.y) <= threshold);
+
+        if (!line) {
+            line = { y: letter.y, h: letter.h, letters: [] };
+            lines.push(line);
+        }
+
+        line.y = Math.min(line.y, letter.y);
+        line.h = Math.max(line.h, letter.h);
+        line.letters.push(letter);
+    }
+
+    lines.sort((a, b) => a.y - b.y);
+    lines.forEach((line) => {
+        line.letters.sort((a, b) => a.x - b.x);
+        line.letters.forEach((letter) => {
+            letter.y = line.y;
+            letter.oy = line.y;
+            letter.py = line.y;
+            letter.h = line.h;
+        });
+    });
+
+    const ordered = [];
+    const lastLineIndex = lines.length - 1;
+    const flipEvenLines = lastLineIndex % 2 === 1;
+
+    lines.forEach((line, lineIndex) => {
+        const reversed = flipEvenLines ? lineIndex % 2 === 0 : lineIndex % 2 === 1;
+        ordered.push(...(reversed ? [...line.letters].reverse() : line.letters));
+    });
+
+    return ordered;
 }
 
 function collectStyledGraphemes(root, segmenter) {

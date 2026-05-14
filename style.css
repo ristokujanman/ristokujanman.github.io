@@ -1,17 +1,17 @@
 @font-face {
     font-family: "RizomaS-light";
-    src: url("https://raw.githubusercontent.com/ristokujanman/ristokujanman.github.io/master/RizomaS-Light.woff2")
-        format("woff2");
+    src: url("RizomaS-Light.woff2") format("woff2");
     font-weight: 300;
     font-style: normal;
+    font-display: block;
 }
 
 @font-face {
     font-family: "RizomaS-light";
-    src: url("https://raw.githubusercontent.com/ristokujanman/ristokujanman.github.io/master/RizomaS-LightItalic.woff2")
-        format("woff2");
+    src: url("RizomaS-LightItalic.woff2") format("woff2");
     font-weight: 300;
     font-style: italic;
+    font-display: block;
 }
 
 html {
@@ -218,6 +218,21 @@ a.small {
 
 /* Mobile responsive adjustments */
 @media screen and (max-width: 980px) {
+    .text-string-affordance {
+        width: 118px;
+        height: 82px;
+        font-size: 17px;
+    }
+
+    .text-string-affordance-arrow {
+        width: 118px;
+        height: 60px;
+    }
+
+    .text-string-affordance span {
+        top: -18px;
+    }
+
     .signature {
         display: flex;
         justify-content: flex-end;
