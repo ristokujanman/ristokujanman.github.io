@@ -17,6 +17,7 @@ const config = {
     maxSteps: 4,
     affordanceDelay: 1000,
     browserLayoutBreakpoint: 980,
+    resizeDelay: 160,
 };
 
 const supportsSegmenter = typeof Intl !== "undefined" && "Segmenter" in Intl;
@@ -66,6 +67,7 @@ class TextString {
         this.affordancePlaced = false;
         this.affordanceTimer = 0;
         this.resizeTimer = 0;
+        this.layoutSignature = "";
 
         this.onPointerDown = this.onPointerDown.bind(this);
         this.onPointerMove = this.onPointerMove.bind(this);
@@ -133,6 +135,7 @@ class TextString {
         this.elements = this.letters.map((letter, index) => this.createLetterElement(letter, index));
         this.elements.forEach((element) => this.overlay.appendChild(element));
         this.overlay.appendChild(this.affordance);
+        this.layoutSignature = this.getLayoutSignature();
         this.overlay.style.height = `${this.container.scrollHeight}px`;
         this.restLengths = this.computeRestLengths();
         this.armTail();
@@ -427,9 +430,30 @@ class TextString {
     onResize() {
         window.clearTimeout(this.resizeTimer);
         this.resizeTimer = window.setTimeout(() => {
-            this.rebuild();
+            if (this.getLayoutSignature() !== this.layoutSignature) {
+                this.rebuild();
+            } else {
+                this.refreshViewport();
+            }
+
             this.checkScrollAffordance();
-        }, 160);
+        }, config.resizeDelay);
+    }
+
+    getLayoutSignature() {
+        const rect = this.container.getBoundingClientRect();
+        const mode = usesBrowserLayout() ? "browser" : "pretext";
+        return `${mode}:${roundPixel(rect.width)}`;
+    }
+
+    refreshViewport() {
+        this.overlay.style.height = `${this.container.scrollHeight}px`;
+        if (this.affordanceVisible) this.positionAffordance(true);
+
+        if (this.started) {
+            this.keepInViewport();
+            this.paint();
+        }
     }
 
     onScroll() {
@@ -986,4 +1010,8 @@ function pageScrollRemaining() {
 function clamp(value, min, max) {
     if (max < min) return min;
     return Math.min(Math.max(value, min), max);
+}
+
+function roundPixel(value) {
+    return Math.round(value * 100) / 100;
 }
