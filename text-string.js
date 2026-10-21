@@ -184,6 +184,8 @@ class TextString {
                 const lineGraphemes = graphemes(line.text, this.segmenter);
                 const lineLetters = [];
                 let x = paragraphX + indent;
+                let previousCh = "";
+                let previousFont = "";
                 const y = paragraphY + lineIndex * lineHeight;
 
                 for (const ch of lineGraphemes) {
@@ -192,6 +194,16 @@ class TextString {
                     const styled = next.item;
                     const font = canvasFont(sourceStyle, styled);
                     const width = measureGrapheme(this.measureContext, ch, font);
+
+                    // Preserve pair kerning when each character is rendered in its own span.
+                    if (previousCh && previousFont === font) {
+                        x += measureKerningAdjustment(
+                            this.measureContext,
+                            previousCh,
+                            ch,
+                            font,
+                        );
+                    }
 
                     lineLetters.push({
                         ch,
@@ -211,8 +223,9 @@ class TextString {
                     });
 
                     x += width;
+                    previousCh = ch;
+                    previousFont = font;
                 }
-
                 if (lineLetters.length) visualLines.push(lineLetters);
                 cursor = range.end;
                 lineIndex += 1;
@@ -956,7 +969,21 @@ function canvasFont(baseStyle, overrides = {}) {
 
 function measureGrapheme(context, ch, font) {
     context.font = font;
+    if ("fontKerning" in context) context.fontKerning = "normal";
     return context.measureText(ch === "\u00a0" ? " " : ch).width;
+}
+
+function measureKerningAdjustment(context, previousCh, ch, font) {
+    context.font = font;
+    if ("fontKerning" in context) context.fontKerning = "normal";
+
+    const previous = previousCh === "\u00a0" ? " " : previousCh;
+    const current = ch === "\u00a0" ? " " : ch;
+    const pairWidth = context.measureText(previous + current).width;
+    const previousWidth = context.measureText(previous).width;
+    const currentWidth = context.measureText(current).width;
+
+    return pairWidth - previousWidth - currentWidth;
 }
 
 function px(value, fallback) {
