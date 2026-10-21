@@ -1,246 +1,257 @@
 @font-face {
-font-family: "RizomaS-light";
-src: url("RizomaS-Light.woff2") format("woff2");
-font-weight: 300;
-font-style: normal;
-font-display: block;
+    font-family: "RizomaS-light";
+    src: url("RizomaS-Light.woff2") format("woff2");
+    font-weight: 300;
+    font-style: normal;
+    font-display: block;
 }
 
 @font-face {
-font-family: "RizomaS-light";
-src: url("RizomaS-LightItalic.woff2") format("woff2");
-font-weight: 300;
-font-style: italic;
-font-display: block;
+    font-family: "RizomaS-light";
+    src: url("RizomaS-LightItalic.woff2") format("woff2");
+    font-weight: 300;
+    font-style: italic;
+    font-display: block;
 }
 
 html {
-font-size: 24px;
-max-width: 100%;
-overflow-x: hidden;
+    font-size: 24px;
+    max-width: 100%;
+    overflow-x: hidden;
 }
 
 body {
-font-family: "RizomaS-light", serif;
-font-weight: 300;
-color: #000000;
-background: #ffffff;
-line-height: 1.4;
-font-variant: oldstyle-nums;
-font-kerning: normal;
-margin: 0;
-padding: 0;
-max-width: 100%;
-overflow-x: hidden;
-overscroll-behavior-x: none;
+    font-family: "RizomaS-light", serif;
+    font-weight: 300;
+    color: #000000;
+    background: #ffffff;
+    line-height: 1.4;
+    font-variant: oldstyle-nums;
+    font-kerning: normal;
+    margin: 0;
+    padding: 0;
+    max-width: 100%;
+    overflow-x: hidden;
+    overscroll-behavior-x: none;
 }
 
 .text_container {
-position: relative;
-width: 500px;
-max-width: 90vw;
-margin: auto;
-padding-bottom: 24px;
-margin-top: 24px;
+    position: relative;
+    width: 500px;
+    max-width: 90vw;
+    margin: auto;
+    padding-bottom: 24px;
+    margin-top: 24px;
 }
 
+/* Paragraphs */
 .text_container p {
-margin: 0;
-line-height: 1.4;
+    margin: 0;
+    line-height: 1.4;
+    text-indent: 1.2em;
 }
 
-.text_container p() {
-text-indent: 1.2em;
-}
-
-a {
-color: #000000;
-text-decoration-line: underline;
-text-decoration-thickness: 0.05rem;
-text-underline-offset: 0.15rem;
-text-decoration: none;
-font-style: italic;
-font-family: "RizomaS-light", serif;
+/* Keep the opening paragraph, signature, and footer unindented */
+.text_container p.no-indent,
+.text_container p.signature,
+.text_container .footer p {
+    text-indent: 0;
 }
 
 a {
-color: #000000;
+    color: #000000;
+    text-decoration-line: underline;
+    text-decoration-thickness: 0.05rem;
+    text-underline-offset: 0.15rem;
+    text-decoration: none;
+    font-style: italic;
+    font-family: "RizomaS-light", serif;
 }
 
 a {
-color: red;
+    color: #000000;
 }
 
 a {
-color: #000000;
+    color: red;
+}
+
+a {
+    color: #000000;
 }
 
 .text_container.text-string-ready .text-string-source,
 .text_container.text-string-ready .text-string-source a {
-color: transparent;
-text-decoration-color: transparent;
-caret-color: transparent;
+    color: transparent;
+    text-decoration-color: transparent;
+    caret-color: transparent;
 }
 
 .text_container.text-string-ready .text-string-source a,
 .text_container.text-string-ready .text-string-source a {
-color: transparent;
+    color: transparent;
 }
 
 .text-string-layer {
-position: absolute;
-top: 0;
-left: 0;
-width: 100%;
-overflow: visible;
-pointer-events: none;
-z-index: 2;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    overflow: visible;
+    pointer-events: none;
+    z-index: 2;
 }
 
 .text-string-letter {
-position: absolute;
-top: 0;
-left: 0;
-display: inline-block;
-color: #000000;
-font-family: "RizomaS-light", serif;
-font-size: 1rem;
-font-weight: 300;
-font-variant: oldstyle-nums;
-font-kerning: normal;
-white-space: pre;
-user-select: none;
-pointer-events: none;
-will-change: transform;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: inline-block;
+    color: #000000;
+    font-family: "RizomaS-light", serif;
+    font-size: 1rem;
+    font-weight: 300;
+    font-variant: oldstyle-nums;
+    font-kerning: normal;
+    white-space: pre;
+    user-select: none;
+    pointer-events: none;
+    will-change: transform;
 }
 
 .text-string-letter.is-link {
-font-style: italic;
+    font-style: italic;
 }
 
 .text-string-letter.is-link-active {
-color: red;
+    color: red;
 }
 
 .text-string-letter.is-draggable {
-cursor: grab;
-min-width: 0.9em;
-pointer-events: auto;
-touch-action: none;
+    cursor: grab;
+    min-width: 0.9em;
+    pointer-events: auto;
+    touch-action: none;
 }
 
 .text-string-letter.is-dragging {
-cursor: grabbing;
-z-index: 3;
+    cursor: grabbing;
+    z-index: 3;
 }
 
 .text-string-affordance {
-position: absolute;
-top: 0;
-left: 0;
-width: 132px;
-height: 92px;
-color: #a2a2a2;
-font-family: "RizomaS-light", serif;
-font-size: 19px;
-font-variant: normal;
-font-weight: 400;
-letter-spacing: 0;
-line-height: 1;
-opacity: 0;
-pointer-events: none;
-transform: translate(0, 0);
-transition: opacity 240ms ease;
-z-index: 4;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 132px;
+    height: 92px;
+    color: #a2a2a2;
+    font-family: "RizomaS-light", serif;
+    font-size: 19px;
+    font-variant: normal;
+    font-weight: 400;
+    letter-spacing: 0;
+    line-height: 1;
+    opacity: 0;
+    pointer-events: none;
+    transform: translate(0, 0);
+    transition: opacity 240ms ease;
+    z-index: 4;
 }
 
 .text-string-affordance.is-visible {
-opacity: 1;
+    opacity: 1;
 }
 
 .text-string-affordance-arrow {
-display: block;
-width: 132px;
-height: 68px;
-overflow: visible;
+    display: block;
+    width: 132px;
+    height: 68px;
+    overflow: visible;
 }
 
 .text-string-affordance-arrow path {
-fill: none;
-stroke: #c7c7c7;
-stroke-linecap: round;
-stroke-linejoin: round;
-stroke-width: 2.7px;
+    fill: none;
+    stroke: #c7c7c7;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-width: 2.7px;
 }
 
 .text-string-affordance span {
-display: inline-block;
-position: relative;
-top: -20px;
-font-variant: normal;
-text-transform: none;
-transform: rotate(27deg);
-transform-origin: 0 50%;
+    display: inline-block;
+    position: relative;
+    top: -20px;
+    font-variant: normal;
+    text-transform: none;
+    transform: rotate(27deg);
+    transform-origin: 0 50%;
 }
 
 a.small {
-font-variant: small-caps;
+    font-variant: small-caps;
 }
 
 .i {
-font-style: italic;
-font-family: "RizomaS-light", serif;
+    font-style: italic;
+    font-family: "RizomaS-light", serif;
 }
 
 .small {
-font-variant: small-caps;
+    font-variant: small-caps;
 }
 
 /* Signature style */
 .signature {
-text-align: right;
-margin-top: 40px;
-font-family: "RizomaS-light", serif;
-font-style: italic;
-font-size: 1em;
+    text-align: right;
+    margin-top: 40px;
+    font-family: "RizomaS-light", serif;
+    font-style: italic;
+    font-size: 1em;
+    text-indent: 0;
 }
 
 /* Footer */
 .footer {
-margin: 0;
-margin-top: 338px;
-font-variant: small-caps;
-font-size: 0.5em;
+    margin: 0;
+    margin-top: 338px;
+    font-variant: small-caps;
+    font-size: 0.5em;
+}
+
+.footer p {
+    text-indent: 0;
 }
 
 .footer .i {
-font-style: italic;
-font-family: "RizomaS-light", serif;
+    font-style: italic;
+    font-family: "RizomaS-light", serif;
 }
 
 /* Mobile responsive adjustments */
 @media screen and (max-width: 980px) {
-.text-string-affordance {
-width: 118px;
-height: 82px;
-font-size: 17px;
-}
-.text-string-affordance-arrow {
-    width: 118px;
-    height: 60px;
-}
+    .text-string-affordance {
+        width: 118px;
+        height: 82px;
+        font-size: 17px;
+    }
 
-.text-string-affordance span {
-    top: -18px;
-}
+    .text-string-affordance-arrow {
+        width: 118px;
+        height: 60px;
+    }
 
-.signature {
-    display: flex;
-    justify-content: flex-end;
-    margin-top: 48px;
-}
+    .text-string-affordance span {
+        top: -18px;
+    }
 
-.footer {
-    margin-top: 380px;
-}
+    .signature {
+        display: flex;
+        justify-content: flex-end;
+        margin-top: 48px;
+    }
+
+    .footer {
+        margin-top: 380px;
+    }
 }
